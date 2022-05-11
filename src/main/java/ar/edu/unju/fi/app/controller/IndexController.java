@@ -4,14 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import ar.edu.unju.fi.util.ListaBeca;
+
 @Controller
 public class IndexController {
 	
 	
 	@GetMapping("/inicio")
 	public String getIndexPagina(Model model) {
-
-		System.out.println("llega");
+		ListaBeca unaListabecas = new ListaBeca();
+		model.addAttribute("becas", unaListabecas.getListabecas());
 		return "inicio";
 	}
 

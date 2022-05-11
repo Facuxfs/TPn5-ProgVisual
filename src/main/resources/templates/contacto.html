@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>TP4-ProgVisual</title>
+  <meta name="tp4ProgVisual" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header> 
+<h1>Trabajo Practico N°4 - Calendario</h1>
+<img title="imagen2" width="100%" alt="imagen para el titulo" src="../static/images/imagen4.png">
+</header>
+<nav>
+<ul>
+  <li><a href="index.html">Inicio</a></li>
+  <li><a href="agenda.html">Agenda</a></li>
+  <li><a href="beneficios.html">Beneficios y Becas</a></li>
+  <li><a href="">Contactanos</a></li>
+</ul>
+</nav>
+<form action="/my-handling-form-page" method="post">
+ <ul>
+  <li>
+    <label for="name">Nombre y Apellido:</label>
+    <input type="text" id="name" name="user_name">
+  </li>
+  <br>
+  <li>
+    <label for="name">Provincia:</label>
+  	 <select name="provincia">
+      <option>Jujuy</option>
+      <option>Salta</option>
+      <option>Tucuman</option>
+      <option>La Rioja</option>
+      <option>Catamarca</option>
+    </select>
+  </li>
+  <br>
+   <li>
+    <label for="name">Telefono:</label>
+    <input type="text" id="name" name="user_name">
+  </li>
+  <br>
+  <li>
+    <label for="mail">Correo electrónico:</label>
+    <input type="email" id="mail" name="user_mail">
+  </li>
+  <br>
+  <li>
+  <form name="formulario" method="post" action="/send.php">
+  <p>
+    Estado civil
+    <input type="radio" name="estado civil" value="H" /> Casado
+    <input type="radio" name="estado civil" value="M" /> Soltero
+    <input type="radio" name="estado civil" value="M" /> Viudo
+  </p>
+</form>
+</li>
+  <li>
+    <label for="msg">Mensaje:</label>
+    <textarea id="msg" name="user_message"></textarea>
+  </li>
+  <br>
+  <li>
+  <form method="get" action="">
+<input type="submit" value="Enviar este formulario" />
+</li>
+ </ul>
+</form>
+	<footer>
+		<p>2022. Portal de Capacitación – Av. Gral. Manuel Belgrano 789 –
+			Teléfono (388) 999999 S. S. de Jujuy República Argentina.
+	</footer>
+
+</body>
