@@ -18,34 +18,45 @@
 
 <body>
 
+	<div   class="card-group">
+		<div th:each="carta:${listacartas}" class="card">
+			<img src="..." class="card-img-top" alt="...">
+			<div class="card-body" >
+				<h5 th:text="${carta.titulo}" class="card-title" >Card title</h5>
+				<p class="card-text">This is a wider card with supporting text
+					below as a natural lead-in to additional content. This content is a
+					little bit longer.</p>
+				<p class="card-text">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</p>
+			</div>
+		</div>
+	
+	</div>
 
 
 
-	<table border="1" th:each="beca : ${becas}" class="table table-striped">
-
-		<tr>
-			<td>CODIGO</td>
-			<td>CURSO</td>
-			<td>FECHA INICIO</td>
-			<td>FECHA CIERRE</td>
-			<td>ESTADO</td>
-		</tr>
-
-		<tr>
-
-			<td th:text="${beca.codigo}"></td>
-
-			<td th:text="${beca.curso}"></td>
-
-			<td th:text="${beca.fechaInicio}"></td>
-			<td th:text="${beca.fechaCierre}"></td>
-
-		</tr>
-
-	</table>
-
-
-
+	<div class="container">
+		<div class="row">
+			<!-- Cards -->
+			<div class="row">
+				<!-- CARDS -->
+					<div th:each="carta:${listacartas}" class="col-3">
+					<div class="card" style="width: 18rem;">
+						<img th:src="@{/images/{name}(name=${carta.uriImagen})}"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 th:text="${carta.titulo}" class="card-title"></h5>
+							<p th:text="${carta.descripcion}" class="card-text"></p>
+							<a th:href="@{/demoSpring/viewPost?id={id}(id=${carta.id})}"
+								class="btn btn-primary">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 
 </body>
 <footer th:replace="layouts/footer::pie"></footer>

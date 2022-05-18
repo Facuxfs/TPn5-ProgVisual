@@ -1,6 +1,6 @@
 p{
-	background:silver;
 	color:black;
+	text-transform: uppercase
 }
 
 
@@ -8,3 +8,6 @@ table{
 	border: 2px solid black;
 }
 
+body{
+	background: silver;
+}
