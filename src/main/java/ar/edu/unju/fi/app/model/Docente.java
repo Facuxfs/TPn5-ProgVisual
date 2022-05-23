@@ -1,10 +1,23 @@
 package ar.edu.unju.fi.app.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Docente {
+	
+@Min(value=1000, message="legajo invalido")
  private Integer legajo;
+@Size(min=3, max=20 , message="Nombre formato incorrecto")
+@NotEmpty(message="Debe ingresar un nombre")
  private String nombre;
+@NotEmpty(message="Debe ingresar un apellido")
  private String apellido;
+@NotEmpty @Email
  private String email;
+@NotNull(message = "Ingrese numero telefonico")
  private Float telefono;
  
 public Integer getLegajo() {

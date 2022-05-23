@@ -2,6 +2,8 @@ package ar.edu.unju.fi.app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,19 +34,19 @@ public class DocenteController {
 		
 		
 		@PostMapping("/guardar")
-		public ModelAndView getListaAlumnosPage(@ModelAttribute("docente")Docente docente) {
-			ModelAndView mav = new ModelAndView("listaDocentes");
-			
-			ListaDocentes listaDocentes = new ListaDocentes();
-
-			if(listaDocentes.getListaDocente().add(docente)) {
-				
+		public ModelAndView getListaAlumnosPage(@Validated @ModelAttribute("docente") Docente docente,
+				BindingResult bindingResult) {
+			if (bindingResult.hasErrors()) {
+				ModelAndView mav = new ModelAndView("nuevodocente");
+				mav.addObject("docente", docente);
+				return mav;
 			}
-			
+			ModelAndView mav = new ModelAndView("listaDocentes");
+			ListaDocentes listaDocentes = new ListaDocentes();
+			if (listaDocentes.getListaDocente().add(docente)) {
+			}
 			mav.addObject("docentes", listaDocentes.getListaDocente());
 			return mav;
 		}
-		
 
-}
-
+	}

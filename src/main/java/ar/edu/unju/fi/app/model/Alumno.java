@@ -1,11 +1,25 @@
 package ar.edu.unju.fi.app.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Alumno {
+	
+	@Min(value=1000000, message="DNI invalido")
 	private Integer dni;
+	@Size(min=3, max=20 , message="Nombre formato incorrecto")
+	@NotEmpty(message="Debe ingresar un nombre")
 	private String nombre;
+	@NotEmpty(message="Debe ingresar un apellido")
 	private String apellido;
+	@NotEmpty @Email
 	private String email;
-	private Float telefono;
+	@NotNull(message = "Ingrese numero telefonico")
+	private int telefono;
 	
 	
 	
@@ -33,10 +47,10 @@ public class Alumno {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Float getTelefono() {
+	public int getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(Float telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 	@Override
@@ -44,7 +58,7 @@ public class Alumno {
 		return "Alumno [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
 				+ ", telefono=" + telefono + "]";
 	}
-	public Alumno(Integer dni, String nombre, String apellido, String email, Float telefono) {
+	public Alumno(Integer dni, String nombre, String apellido, String email, int telefono) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
